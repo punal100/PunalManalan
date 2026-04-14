@@ -30,12 +30,11 @@ Decimal phases appear between their surrounding integers in numeric order.
 2. Visitor can read about, experience, and technical arsenal sections with real authored content.
 3. The default Next.js starter page is fully removed.
 4. The page uses semantic HTML structure inside the App Router page.
-   **Plans**: 2 plans
+   **Plans**: 1 plan
 
 Plans:
 
-- [ ] 01-01: Compose portfolio content model and semantic section structure
-- [ ] 01-02: Replace starter page content with authored profile, experience, and grouped skills
+- [ ] 01-01: Deliver the authored semantic content foundation for the portfolio landing page
 
 ### Phase 2: Visual Identity and Responsive Experience
 
@@ -78,6 +77,6 @@ Phases execute in numeric order: 1 -> 2 -> 2.1 -> 2.2 -> 3 -> 3.1 -> 4
 
 | Phase                                        | Plans Complete | Status      | Completed |
 | -------------------------------------------- | -------------- | ----------- | --------- |
-| 1. Portfolio Content Foundation              | 0/2            | Not started | -         |
+| 1. Portfolio Content Foundation              | 0/1            | Not started | -         |
 | 2. Visual Identity and Responsive Experience | 0/2            | Not started | -         |
 | 3. Metadata and Final Polish                 | 0/1            | Not started | -         |
