@@ -14,13 +14,18 @@ export default function Home() {
     identity,
     about,
     experience,
-    featuredProject,
+    featuredProjects,
     selectedProjects,
     unrealRepositoryGroups,
     contributions,
     legacyProjects,
     skillDomains,
   } = portfolioData;
+
+  const totalFeaturedScreenshots = featuredProjects.reduce(
+    (count, project) => count + project.gallery.length,
+    0,
+  );
 
   return (
     <div className="relative flex min-h-screen flex-col overflow-x-hidden text-foreground">
@@ -30,9 +35,13 @@ export default function Home() {
             href="#top"
             className="inline-flex items-center gap-3 text-sm font-medium tracking-[0.28em] text-white transition hover:text-accent"
           >
-            <span className="flex size-10 items-center justify-center rounded-full border border-white/12 bg-white/6 text-[0.7rem] font-semibold">
-              PM
-            </span>
+            <Image
+              src="/profile.jpeg"
+              alt="Punal Manalan"
+              width={40}
+              height={40}
+              className="size-10 rounded-full border border-white/12 object-cover"
+            />
             PUNAL MANALAN
           </a>
           <nav className="hidden items-center gap-2 rounded-full border border-white/8 bg-white/4 p-1 text-sm text-slate-300 md:flex">
@@ -50,7 +59,7 @@ export default function Home() {
       </header>
 
       <main id="top" className="mx-auto flex w-full max-w-6xl flex-1 flex-col px-6 pb-16 lg:px-8">
-        <section className="grid gap-10 pb-16 pt-12 lg:grid-cols-[1.35fr_0.85fr] lg:items-end lg:gap-14 lg:pt-20">
+        <section className="grid gap-10 pb-16 pt-12 lg:grid-cols-[1.35fr_0.85fr] lg:items-start lg:gap-14 lg:pt-20">
           <div className="space-y-8">
             <p className="inline-flex items-center gap-3 rounded-full border border-accent/15 bg-accent/8 px-4 py-2 font-mono text-xs uppercase tracking-[0.34em] text-accent">
               {identity.headline}
@@ -110,6 +119,26 @@ export default function Home() {
                 </div>
               ))}
             </div>
+
+            <div className="rounded-[2rem] border border-white/8 bg-panel p-6 backdrop-blur-sm">
+              <p className="font-mono text-[0.68rem] uppercase tracking-[0.34em] text-slate-500">
+                Public Profiles
+              </p>
+              <div className="mt-5 flex flex-wrap gap-4">
+                {identity.links.map((link) => (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex-1 basis-48 rounded-[1.4rem] border border-white/8 bg-white/[0.03] p-4 transition hover:border-accent/30 hover:bg-white/[0.05]"
+                  >
+                    <p className="text-sm font-semibold text-white">{link.label}</p>
+                    <p className="mt-2 break-all text-sm leading-6 text-slate-400">{link.href}</p>
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
 
           <aside className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(10,26,40,0.94),rgba(6,17,27,0.84))] p-6 shadow-[0_20px_60px_rgba(0,0,0,0.32)] lg:p-8">
@@ -117,26 +146,27 @@ export default function Home() {
             <div className="space-y-8">
               <div className="space-y-3">
                 <p className="font-mono text-[0.68rem] uppercase tracking-[0.34em] text-slate-400">
-                  Resume Coverage
+                  Current Focus
                 </p>
                 <p className="text-2xl leading-9 text-white">
-                  Every major section from the 2026 resume is now part of the portfolio content source.
+                  Building cross-platform systems, Unreal Engine workflows, and AI-adjacent tooling with production-minded engineering.
                 </p>
               </div>
 
               <div className="space-y-4 rounded-[1.6rem] border border-white/8 bg-white/[0.035] p-5">
                 <div className="flex items-center justify-between text-sm text-slate-400">
-                  <span>Coverage Matrix</span>
+                  <span>At a Glance</span>
                   <span className="font-mono text-xs uppercase tracking-[0.28em] text-accent-warm">
-                    Loaded
+                    Snapshot
                   </span>
                 </div>
                 <ul className="space-y-3 text-sm text-slate-200">
                   {[
-                    `${experience.length} professional roles`,
-                    `${selectedProjects.length} selected public highlights`,
-                    `${unrealRepositoryGroups.length} grouped Unreal repository tracks`,
-                    `${featuredProject.gallery.length} featured Wrexa screenshots`,
+                    `${experience.length} professional roles across R&D, engine, and systems work`,
+                    `${selectedProjects.length} selected public project highlights`,
+                    `${unrealRepositoryGroups.length} grouped Unreal tooling and repository tracks`,
+                    `${featuredProjects.length} featured interactive project case studies`,
+                    `${totalFeaturedScreenshots} featured project screenshots`,
                   ].map((area) => (
                     <li key={area} className="flex gap-3">
                       <span className="mt-1.5 h-2 w-2 rounded-full bg-accent" />
@@ -170,9 +200,9 @@ export default function Home() {
 
         <section
           id="about"
-          className="grid gap-8 border-t border-white/8 py-16 lg:grid-cols-[0.85fr_1.15fr] lg:gap-12"
+          className="space-y-8 border-t border-white/8 py-16"
         >
-          <header className="space-y-4">
+          <header className="max-w-2xl space-y-4">
             <p className="font-mono text-xs uppercase tracking-[0.34em] text-accent-warm">
               About
             </p>
@@ -181,55 +211,32 @@ export default function Home() {
             </h2>
           </header>
 
-          <div className="grid gap-6 lg:grid-cols-[1fr_0.85fr]">
-            <article className="rounded-[2rem] border border-white/8 bg-white/[0.04] p-6 leading-8 text-slate-300 backdrop-blur-sm">
-              <p>{about.introduction}</p>
-              <ul className="mt-6 grid gap-3 text-sm leading-7 text-slate-300 md:grid-cols-2">
-                {about.bullets.map((bullet) => (
-                  <li
-                    key={bullet}
-                    className="rounded-[1.4rem] border border-white/8 bg-white/[0.03] p-4"
-                  >
-                    {bullet}
-                  </li>
-                ))}
-              </ul>
-            </article>
-
-            <div className="rounded-[2rem] border border-white/8 bg-panel p-6 backdrop-blur-sm">
-              <p className="font-mono text-[0.68rem] uppercase tracking-[0.34em] text-slate-500">
-                Public Profiles
-              </p>
-              <div className="mt-5 space-y-4">
-                {identity.links.map((link) => (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="block rounded-[1.4rem] border border-white/8 bg-white/[0.03] p-4 transition hover:border-accent/30 hover:bg-white/[0.05]"
-                  >
-                    <p className="text-sm font-semibold text-white">{link.label}</p>
-                    <p className="mt-2 break-all text-sm leading-6 text-slate-400">{link.href}</p>
-                  </a>
-                ))}
-              </div>
-            </div>
-          </div>
+          <article className="rounded-[2rem] border border-white/8 bg-white/[0.04] p-6 leading-8 text-slate-300 backdrop-blur-sm">
+            <p>{about.introduction}</p>
+            <ul className="mt-6 grid gap-3 text-sm leading-7 text-slate-300 sm:grid-cols-2 lg:grid-cols-4">
+              {about.bullets.map((bullet) => (
+                <li
+                  key={bullet}
+                  className="rounded-[1.4rem] border border-white/8 bg-white/[0.03] p-4"
+                >
+                  {bullet}
+                </li>
+              ))}
+            </ul>
+          </article>
         </section>
 
-        <section id="experience" className="border-t border-white/8 py-16">
-          <div className="grid gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:gap-12">
-            <header className="space-y-4">
-              <p className="font-mono text-xs uppercase tracking-[0.34em] text-accent-warm">
-                Experience
-              </p>
-              <h2 className="text-3xl font-semibold tracking-[-0.04em] text-white sm:text-4xl">
-                Professional work spanning Unreal R&amp;D, runtime systems, networking, and shipped products.
-              </h2>
-            </header>
+        <section id="experience" className="space-y-8 border-t border-white/8 py-16">
+          <header className="max-w-2xl space-y-4">
+            <p className="font-mono text-xs uppercase tracking-[0.34em] text-accent-warm">
+              Experience
+            </p>
+            <h2 className="text-3xl font-semibold tracking-[-0.04em] text-white sm:text-4xl">
+              Professional work spanning Unreal R&amp;D, runtime systems, networking, and shipped products.
+            </h2>
+          </header>
 
-            <div className="grid gap-5">
+          <div className="grid gap-5">
               {experience.map((role) => (
                 <article
                   key={`${role.company}-${role.title}`}
@@ -279,87 +286,113 @@ export default function Home() {
                 </article>
               ))}
             </div>
-          </div>
         </section>
 
         <section id="featured-work" className="border-t border-white/8 py-16">
-          <div className="grid gap-8 lg:grid-cols-[0.78fr_1.22fr] lg:gap-12">
-            <header className="space-y-4">
-              <p className="font-mono text-xs uppercase tracking-[0.34em] text-accent-warm">
-                Featured Work
-              </p>
-              <h2 className="text-3xl font-semibold tracking-[-0.04em] text-white sm:text-4xl">
-                {featuredProject.title}
-              </h2>
-              <p className="text-sm uppercase tracking-[0.28em] text-slate-400">
-                {featuredProject.subtitle}
+          <div className="space-y-10">
+            <header className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
+              <div className="space-y-3">
+                <p className="font-mono text-xs uppercase tracking-[0.34em] text-accent-warm">
+                  Featured Work
+                </p>
+                <h2 className="text-3xl font-semibold tracking-[-0.04em] text-white sm:text-4xl">
+                  Unreal Engine case studies spanning real-time collaboration, combat systems, and direct ownership.
+                </h2>
+              </div>
+              <p className="max-w-xl text-sm leading-7 text-slate-400">
+                A focused selection of projects where the work centered on systems depth, gameplay execution,
+                and hands-on delivery rather than only concept exploration.
               </p>
             </header>
 
-            <div className="space-y-6 rounded-[2rem] border border-white/8 bg-white/[0.04] p-6 backdrop-blur-sm">
-              <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-                <p className="text-lg font-medium text-accent-warm">{featuredProject.analogy}</p>
-                <a
-                  href={featuredProject.demoVideo.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center justify-center rounded-full border border-accent/20 bg-accent px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-[#79eadc]"
+            <div className="space-y-8">
+              {featuredProjects.map((project) => (
+                <article
+                  key={project.title}
+                  className="space-y-6 rounded-[2rem] border border-white/8 bg-white/[0.04] p-6 backdrop-blur-sm"
                 >
-                  {featuredProject.demoVideo.label}
-                </a>
-              </div>
+                  <header className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+                    <div className="space-y-2">
+                      <h3 className="text-3xl font-semibold tracking-[-0.04em] text-white sm:text-4xl">
+                        {project.title}
+                      </h3>
+                      <p className="text-sm uppercase tracking-[0.28em] text-slate-400">
+                        {project.subtitle}
+                      </p>
+                    </div>
+                    <div className="flex flex-wrap gap-3">
+                      {project.links.map((link, index) => (
+                        <a
+                          key={link.href}
+                          href={link.href}
+                          target="_blank"
+                          rel="noreferrer"
+                          className={
+                            index === 0
+                              ? "inline-flex items-center justify-center rounded-full border border-accent/20 bg-accent px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-[#79eadc]"
+                              : "inline-flex items-center justify-center rounded-full border border-white/12 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition hover:border-white/25 hover:bg-white/10"
+                          }
+                        >
+                          {link.label}
+                        </a>
+                      ))}
+                    </div>
+                  </header>
 
-              <p className="text-base leading-8 text-slate-300">{featuredProject.summary}</p>
+                  <p className="text-lg font-medium text-accent-warm">{project.analogy}</p>
+                  <p className="text-base leading-8 text-slate-300">{project.summary}</p>
 
-              <div className="grid gap-5 lg:grid-cols-2">
-                <div className="rounded-[1.5rem] border border-white/8 bg-white/[0.03] p-5">
-                  <p className="font-mono text-[0.68rem] uppercase tracking-[0.32em] text-slate-500">
-                    Capabilities
-                  </p>
-                  <ul className="mt-4 space-y-3 text-sm leading-7 text-slate-300">
-                    {featuredProject.capabilities.map((item) => (
-                      <li key={item} className="flex gap-3">
-                        <span className="mt-2 h-2 w-2 rounded-full bg-accent" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                    <div className="grid gap-5 lg:grid-cols-2">
+                      <div className="rounded-[1.5rem] border border-white/8 bg-white/[0.03] p-5">
+                        <p className="font-mono text-[0.68rem] uppercase tracking-[0.32em] text-slate-500">
+                          Capabilities
+                        </p>
+                        <ul className="mt-4 space-y-3 text-sm leading-7 text-slate-300">
+                          {project.capabilities.map((item) => (
+                            <li key={item} className="flex gap-3">
+                              <span className="mt-2 h-2 w-2 rounded-full bg-accent" />
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
 
-                <div className="rounded-[1.5rem] border border-white/8 bg-white/[0.03] p-5">
-                  <p className="font-mono text-[0.68rem] uppercase tracking-[0.32em] text-slate-500">
-                    Personal Contributions
-                  </p>
-                  <ul className="mt-4 space-y-3 text-sm leading-7 text-slate-300">
-                    {featuredProject.contributions.map((item) => (
-                      <li key={item} className="flex gap-3">
-                        <span className="mt-2 h-2 w-2 rounded-full bg-accent-warm" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
+                      <div className="rounded-[1.5rem] border border-white/8 bg-white/[0.03] p-5">
+                        <p className="font-mono text-[0.68rem] uppercase tracking-[0.32em] text-slate-500">
+                          Personal Contributions
+                        </p>
+                        <ul className="mt-4 space-y-3 text-sm leading-7 text-slate-300">
+                          {project.contributions.map((item) => (
+                            <li key={item} className="flex gap-3">
+                              <span className="mt-2 h-2 w-2 rounded-full bg-accent-warm" />
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
 
-              <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-                {featuredProject.gallery.map((image) => (
-                  <figure
-                    key={image.src}
-                    className="overflow-hidden rounded-[1.5rem] border border-white/8 bg-slate-950/60"
-                  >
-                    <Image
-                      src={image.src}
-                      alt={image.alt}
-                      width={1200}
-                      height={800}
-                      className="h-56 w-full object-cover"
-                    />
-                    <figcaption className="border-t border-white/8 px-4 py-3 text-sm text-slate-300">
-                      {image.caption}
-                    </figcaption>
-                  </figure>
-                ))}
-              </div>
+                    <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+                      {project.gallery.map((image) => (
+                        <figure
+                          key={image.src}
+                          className="overflow-hidden rounded-[1.5rem] border border-white/8 bg-slate-950/60"
+                        >
+                          <Image
+                            src={image.src}
+                            alt={image.alt}
+                            width={1200}
+                            height={800}
+                            className="h-56 w-full object-cover"
+                          />
+                          <figcaption className="border-t border-white/8 px-4 py-3 text-sm text-slate-300">
+                            {image.caption}
+                          </figcaption>
+                        </figure>
+                      ))}
+                    </div>
+                </article>
+              ))}
             </div>
           </div>
         </section>

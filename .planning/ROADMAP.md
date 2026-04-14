@@ -14,7 +14,7 @@ This roadmap turns the empty portfolio scaffold into a finished personal site in
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Portfolio Content Foundation** - Replace starter content with authored resume details, public links, featured work, and supporting media.
-- [ ] **Phase 2: Visual Identity and Responsive Experience** - Shape the portfolio into a dark, polished, mobile-friendly experience with subtle interaction cues.
+- [x] **Phase 2: Visual Identity and Responsive Experience** - Shape the portfolio into a dark, polished, mobile-friendly experience with subtle interaction cues.
 - [ ] **Phase 3: Metadata and Final Polish** - Add metadata and finish the page for a clean first release.
 
 ## Phase Details
@@ -53,8 +53,8 @@ Plans:
 
 Plans:
 
-- [ ] 02-01: Establish dark visual system, section surfaces, and typography rhythm
-- [ ] 02-02: Tune responsive layout and add CTA plus interaction states
+- [x] 02-01: Establish dark visual system, section surfaces, and typography rhythm
+- [x] 02-02: Tune responsive layout and add CTA plus interaction states
 
 ### Phase 3: Metadata and Final Polish
 
@@ -80,5 +80,5 @@ Phases execute in numeric order: 1 -> 2 -> 2.1 -> 2.2 -> 3 -> 3.1 -> 4
 | Phase                                        | Plans Complete | Status      | Completed |
 | -------------------------------------------- | -------------- | ----------- | --------- |
 | 1. Portfolio Content Foundation              | 2/2            | Complete    | 2026-04-14 |
-| 2. Visual Identity and Responsive Experience | 0/2            | Not started | -         |
+| 2. Visual Identity and Responsive Experience | 2/2            | Complete    | 2026-04-14 |
 | 3. Metadata and Final Polish                 | 0/1            | Not started | -         |

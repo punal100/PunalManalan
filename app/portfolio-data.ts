@@ -28,7 +28,7 @@ export type FeaturedProject = {
   title: string;
   subtitle: string;
   analogy: string;
-  demoVideo: ExternalLink;
+  links: ExternalLink[];
   summary: string;
   capabilities: string[];
   contributions: string[];
@@ -74,7 +74,7 @@ export const portfolioData = {
     links: [
       {
         label: "LinkedIn",
-        href: "https://www.linkedin.com/in/punal-manalan-9a1b8b1a2/",
+        href: "https://www.linkedin.com/in/punal-manalan-5245b8178/?skipRedirect=true",
       },
       {
         label: "GitHub",
@@ -189,60 +189,161 @@ export const portfolioData = {
       ],
     },
   ] satisfies ExperienceRole[],
-  featuredProject: {
-    title: "xMall 3D Meet / Virtual Meeting Platform",
-    subtitle: "Highlighted Wrexa Project",
-    analogy: "Google Meet in a Virtual 3D World",
-    demoVideo: {
-      label: "Watch demo video",
-      href: "https://drive.google.com/file/d/1fLxWC6ULwrbK4bcAwaSloeKBN32YuYVT/view?usp=sharing",
+  featuredProjects: [
+    {
+      title: "xMall 3D Meet / Virtual Meeting Platform",
+      subtitle: "Highlighted Wrexa Project",
+      analogy: "Google Meet in a Virtual 3D World",
+      links: [
+        {
+          label: "Watch demo video",
+          href: "https://drive.google.com/file/d/1fLxWC6ULwrbK4bcAwaSloeKBN32YuYVT/view?usp=sharing",
+        },
+      ],
+      summary:
+        "Developed and helped lead a virtual 3D meeting platform at Wrexa with real-time collaboration, in-world presentation workflows, and custom C++ backend and engine integration work.",
+      capabilities: [
+        "Seamless matchmaking using proprietary in-house servers.",
+        "Voice chat.",
+        "Text chat.",
+        "Screen recording.",
+        "Sharing screen to users via the user interface.",
+        "Sharing screen to users via virtual screens such as in-world monitors and projectors.",
+        "Character creator using Ready Player Me.",
+        "Emote system.",
+      ],
+      contributions: [
+        "Personally programmed the C++ screen-recording pipeline.",
+        "Built server and backend components for the experience.",
+        "Implemented Unreal Engine integration work, excluding widget design.",
+        "Combined development execution with team-leading responsibilities during the project.",
+      ],
+      gallery: [
+        {
+          src: "/wrexa/meeting-3d-classroom.jpeg",
+          alt: "Wrexa xMall 3D Meet classroom environment screenshot",
+          caption: "Meeting 3D Classroom",
+        },
+        {
+          src: "/wrexa/meeting-server-lobby-ui.jpeg",
+          alt: "Wrexa xMall 3D Meet server lobby user interface screenshot",
+          caption: "Meeting Server Lobby UI",
+        },
+        {
+          src: "/wrexa/meeting-ui.jpeg",
+          alt: "Wrexa xMall 3D Meet user interface screenshot",
+          caption: "Meeting UI",
+        },
+        {
+          src: "/wrexa/screen-sharing-3d-presentation-on-wall.jpeg",
+          alt: "Wrexa xMall 3D Meet screen sharing projected on an in-world wall",
+          caption: "Screen Sharing 3D Presentation on Wall",
+        },
+        {
+          src: "/wrexa/screensharing-presentation-on-ui.jpeg",
+          alt: "Wrexa xMall 3D Meet screen sharing shown inside the main interface",
+          caption: "Screensharing Presentation on UI",
+        },
+      ] satisfies GalleryImage[],
     },
-    summary:
-      "Developed and helped lead a virtual 3D meeting platform at Wrexa with real-time collaboration, in-world presentation workflows, and custom C++ backend and engine integration work.",
-    capabilities: [
-      "Seamless matchmaking using proprietary in-house servers.",
-      "Voice chat.",
-      "Text chat.",
-      "Screen recording.",
-      "Sharing screen to users via the user interface.",
-      "Sharing screen to users via virtual screens such as in-world monitors and projectors.",
-      "Character creator using Ready Player Me.",
-      "Emote system.",
-    ],
-    contributions: [
-      "Personally programmed the C++ screen-recording pipeline.",
-      "Built server and backend components for the experience.",
-      "Implemented Unreal Engine integration work, excluding widget design.",
-      "Combined development execution with team-leading responsibilities during the project.",
-    ],
-    gallery: [
-      {
-        src: "/wrexa/meeting-3d-classroom.jpeg",
-        alt: "Wrexa xMall 3D Meet classroom environment screenshot",
-        caption: "Meeting 3D Classroom",
-      },
-      {
-        src: "/wrexa/meeting-server-lobby-ui.jpeg",
-        alt: "Wrexa xMall 3D Meet server lobby user interface screenshot",
-        caption: "Meeting Server Lobby UI",
-      },
-      {
-        src: "/wrexa/meeting-ui.jpeg",
-        alt: "Wrexa xMall 3D Meet user interface screenshot",
-        caption: "Meeting UI",
-      },
-      {
-        src: "/wrexa/screen-sharing-3d-presentation-on-wall.jpeg",
-        alt: "Wrexa xMall 3D Meet screen sharing projected on an in-world wall",
-        caption: "Screen Sharing 3D Presentation on Wall",
-      },
-      {
-        src: "/wrexa/screensharing-presentation-on-ui.jpeg",
-        alt: "Wrexa xMall 3D Meet screen sharing shown inside the main interface",
-        caption: "Screensharing Presentation on UI",
-      },
-    ] satisfies GalleryImage[],
-  } satisfies FeaturedProject,
+    {
+      title: "Kingdoms Collide Mobile",
+      subtitle: "Featured Shipped Multiplayer Mobile Title",
+      analogy: "A lane-based real-time strategy battler built around heroes, minions, and live multiplayer decision-making.",
+      links: [
+        {
+          label: "View on Google Play",
+          href: "https://play.google.com/store/apps/details?id=com.kc.kingdomscollide",
+        },
+        {
+          label: "View on App Store",
+          href: "https://apps.apple.com/us/app/kingdoms-collide-mobile/id6446848751",
+        },
+      ],
+      summary:
+        "Performed major Unreal Engine development work on Kingdoms Collide Mobile, a released real-time multiplayer fantasy strategy game spanning a long engine migration path and ongoing live feature development.",
+      capabilities: [
+        "Real-time multiplayer lane battles centered on hero and minion compositions.",
+        "Live mobile gameplay with player-facing UI flows and strategy-focused controls.",
+        "Platform commerce integration across Google Play and the Apple App Store using PlayFab.",
+        "Peer-to-peer multiplayer session flows using Epic Online Services integrated with PlayFab.",
+      ],
+      contributions: [
+        "Contributed major Unreal Engine development work from Unreal Engine 4.7 through Unreal Engine 5.4.",
+        "Built live feature UI, new hero abilities, and new minion characters as gameplay content expanded.",
+        "Implemented Play Store and iOS payment integration for the shipped title.",
+        "Added this project to shipped commercial game experience across public store releases.",
+      ],
+      gallery: [
+        {
+          src: "/kingdoms-collide/screenshot-1.webp",
+          alt: "Kingdoms Collide Mobile promotional gameplay image showing a battlefield with hero units and the tagline Forge Your Legacy",
+          caption: "Forge Your Legacy",
+        },
+        {
+          src: "/kingdoms-collide/screenshot-2.webp",
+          alt: "Kingdoms Collide Mobile gameplay screenshot showing multi-lane unit deployment and combat controls",
+          caption: "Command Your Army and Crush Foes",
+        },
+        {
+          src: "/kingdoms-collide/screenshot-3.webp",
+          alt: "Kingdoms Collide Mobile gameplay screenshot showing tactical lane pressure with hero and minion units",
+          caption: "Tactical Dominance Unleashed",
+        },
+        {
+          src: "/kingdoms-collide/screenshot-4.webp",
+          alt: "Kingdoms Collide Mobile gameplay screenshot showing active battlefield abilities and lane combat",
+          caption: "Heroic Chaos Reigns Supreme",
+        },
+        {
+          src: "/kingdoms-collide/screenshot-5.webp",
+          alt: "Kingdoms Collide Mobile gameplay screenshot showing lane strategy and direct unit confrontation",
+          caption: "Strategy Meets Savage Fury",
+        },
+      ] satisfies GalleryImage[],
+    },
+    {
+      title: "Lead Developer - Souls-like Unreal Engine Project",
+      subtitle: "Featured Gameplay and Combat Prototype",
+      analogy: "A third-person melee duel prototype built around enemy AI and timing-heavy combat.",
+      links: [
+        {
+          label: "View project demo",
+          href: "https://drive.google.com/file/d/14rI7nsLaHvUmaglc8YHSspCP2gVQ1izp/view",
+        },
+      ],
+      summary:
+        "Led the development of a souls-like Unreal Engine 4 project with a fully functional AI and combat system, focused on readable one-on-one encounters and responsive melee gameplay.",
+      capabilities: [
+        "Third-person melee combat loop with sword-and-shield player movement.",
+        "Enemy AI encounter flow built for close-quarters duels.",
+        "Dodge-based evasive movement for timing-sensitive defense.",
+        "Readable HUD-driven combat feedback for player and enemy health.",
+      ],
+      contributions: [
+        "Led the Unreal Engine 4 project implementation as the primary developer.",
+        "Built the combat and enemy AI foundations shown in the prototype.",
+        "Iterated on encounter pacing, movement, and attack readability.",
+      ],
+      gallery: [
+        {
+          src: "/projects/projectinfinity/Gameplay_1.png",
+          alt: "Souls-like Unreal Engine prototype showing a sword-and-shield player facing a greatsword enemy in a torch-lit arena",
+          caption: "Arena Duel Setup",
+        },
+        {
+          src: "/projects/projectinfinity/Gameplay_2.png",
+          alt: "Souls-like Unreal Engine prototype showing the player dodge-rolling beneath an overhead enemy strike",
+          caption: "Dodge Roll Against Overhead Strike",
+        },
+        {
+          src: "/projects/projectinfinity/Gameplay_3.png",
+          alt: "Souls-like Unreal Engine prototype showing an enemy sweeping attack while the player evades",
+          caption: "Enemy Sweep and Player Evasion",
+        },
+      ] satisfies GalleryImage[],
+    },
+  ] satisfies FeaturedProject[],
   selectedProjects: [
     {
       title: "Creator and Maintainer - GSD for GitHub Copilot",
@@ -311,17 +412,6 @@ export const portfolioData = {
         {
           label: "Networking-Wrapper-By-Punal",
           href: "https://github.com/punal100/Networking-Wrapper-By-Punal",
-        },
-      ],
-    },
-    {
-      title: "Lead Developer - Souls-like Unreal Engine Project",
-      summary:
-        "Spear-headed the development of a souls-like Unreal Engine 4 project with a fully functional AI and combat system.",
-      links: [
-        {
-          label: "Project Demo",
-          href: "https://drive.google.com/file/d/14rI7nsLaHvUmaglc8YHSspCP2gVQ1izp/view",
         },
       ],
     },
