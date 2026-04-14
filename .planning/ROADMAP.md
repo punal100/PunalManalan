@@ -35,7 +35,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 Plans:
 
-- [ ] 01-01: Normalize the full resume, links, open-source sections, legacy projects, and Wrexa media into portfolio source data
+- [x] 01-01: Normalize the full resume, links, open-source sections, legacy projects, and Wrexa media into portfolio source data
 - [ ] 01-02: Render the complete resume-backed portfolio experience from the normalized source data
 
 ### Phase 2: Visual Identity and Responsive Experience
@@ -79,6 +79,6 @@ Phases execute in numeric order: 1 -> 2 -> 2.1 -> 2.2 -> 3 -> 3.1 -> 4
 
 | Phase                                        | Plans Complete | Status      | Completed |
 | -------------------------------------------- | -------------- | ----------- | --------- |
-| 1. Portfolio Content Foundation              | 0/2            | Not started | -         |
+| 1. Portfolio Content Foundation              | 1/2            | In progress | -         |
 | 2. Visual Identity and Responsive Experience | 0/2            | Not started | -         |
 | 3. Metadata and Final Polish                 | 0/1            | Not started | -         |

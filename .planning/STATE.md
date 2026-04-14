@@ -10,25 +10,25 @@ See: .planning/PROJECT.md (updated 2026-04-14)
 ## Current Position
 
 Phase: 1 of 3 (Portfolio Content Foundation)
-Plan: 0 of 2 in current phase
+Plan: 1 of 2 in current phase
 Status: Ready to execute
-Last activity: 2026-04-14 — Split Phase 1 into data-ingestion and page-rendering plans for full resume coverage
+Last activity: 2026-04-14 — Executed 01-01 and created the resume-backed portfolio content module plus Wrexa media assets
 
-Progress: [░░░░░░░░░░] 0%
+Progress: [██░░░░░░░░] 20%
 
 ## Performance Metrics
 
 **Velocity:**
 
-- Total plans completed: 0
-- Average duration: -
-- Total execution time: 0.0 hours
+- Total plans completed: 1
+- Average duration: not tracked
+- Total execution time: not tracked
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 | ----- | ----- | ----- | -------- |
-| -     | -     | -     | -        |
+| 1     | 1     | not tracked | not tracked |
 
 **Recent Trend:**
 
@@ -44,6 +44,8 @@ Recent decisions affecting current work:
 
 - [Phase 0]: Use a single-page Next.js App Router portfolio
 - [Phase 0]: Use a dark-first, minimalist visual direction
+- [Phase 1]: Keep complete resume content in `app/portfolio-data.ts` instead of scattering it across JSX.
+- [Phase 1]: Serve Wrexa screenshots from `public/wrexa/` and never from `.temp/` paths.
 
 ### Pending Todos
 
@@ -56,5 +58,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-04-14 00:00
-Stopped at: Phase 1 replanned into 01-01 and 01-02; awaiting execution confirmation
+Stopped at: 01-01 complete; 01-02 is ready to render the resume-backed page from `app/portfolio-data.ts`
 Resume file: None
