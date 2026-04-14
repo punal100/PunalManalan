@@ -12,7 +12,7 @@ See: .planning/PROJECT.md (updated 2026-04-14)
 Phase: 3 of 3 (Metadata and Final Polish)
 Plan: 0 of 1 in current phase
 Status: Ready to plan
-Last activity: 2026-04-14 — Backfilled Phase 2 after completing the visual refresh, responsive layout cleanup, featured work expansion, Project Infinity promotion, canonical public-profile sync, and profile/media polish
+Last activity: 2026-04-14 — Completed quick task 260414-qvm: Fix Vercel NOT_FOUND deployment for portfolio site
 
 Progress: [████████░░] 80%
 
@@ -62,8 +62,14 @@ None yet.
 
 - Repository folder name contains capital letters, so future `create-next-app .` re-runs will fail npm name validation unless a lowercase temp directory is used.
 
+### Quick Tasks Completed
+
+| # | Description | Date | Commit | Directory |
+|---|-------------|------|--------|-----------|
+| 260414-qvm | Fix Vercel NOT_FOUND deployment for portfolio site | 2026-04-14 | 337f998 | [260414-qvm-fix-vercel-not-found-deployment-for-port](./quick/260414-qvm-fix-vercel-not-found-deployment-for-port/) |
+
 ## Session Continuity
 
 Last session: 2026-04-14 00:00
-Stopped at: Phase 2 complete; Phase 3 is next if metadata and final release polish are desired
+Stopped at: Phase 2 complete; quick task 260414-qvm documented the Vercel NOT_FOUND deployment fix and the dashboard setting to verify before Phase 3
 Resume file: None
