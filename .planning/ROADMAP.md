@@ -13,7 +13,7 @@ This roadmap turns the empty portfolio scaffold into a finished personal site in
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Portfolio Content Foundation** - Replace starter content with authored resume details, public links, featured work, and supporting media.
+- [x] **Phase 1: Portfolio Content Foundation** - Replace starter content with authored resume details, public links, featured work, and supporting media.
 - [ ] **Phase 2: Visual Identity and Responsive Experience** - Shape the portfolio into a dark, polished, mobile-friendly experience with subtle interaction cues.
 - [ ] **Phase 3: Metadata and Final Polish** - Add metadata and finish the page for a clean first release.
 
@@ -36,7 +36,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 Plans:
 
 - [x] 01-01: Normalize the full resume, links, open-source sections, legacy projects, and Wrexa media into portfolio source data
-- [ ] 01-02: Render the complete resume-backed portfolio experience from the normalized source data
+- [x] 01-02: Render the complete resume-backed portfolio experience from the normalized source data
 
 ### Phase 2: Visual Identity and Responsive Experience
 
@@ -79,6 +79,6 @@ Phases execute in numeric order: 1 -> 2 -> 2.1 -> 2.2 -> 3 -> 3.1 -> 4
 
 | Phase                                        | Plans Complete | Status      | Completed |
 | -------------------------------------------- | -------------- | ----------- | --------- |
-| 1. Portfolio Content Foundation              | 1/2            | In progress | -         |
+| 1. Portfolio Content Foundation              | 2/2            | Complete    | 2026-04-14 |
 | 2. Visual Identity and Responsive Experience | 0/2            | Not started | -         |
 | 3. Metadata and Final Polish                 | 0/1            | Not started | -         |
