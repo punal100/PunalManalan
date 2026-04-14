@@ -13,7 +13,7 @@ This roadmap turns the empty portfolio scaffold into a finished personal site in
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Portfolio Content Foundation** - Replace starter content with the full single-page portfolio structure and authored resume content.
+- [ ] **Phase 1: Portfolio Content Foundation** - Replace starter content with authored resume details, public links, featured work, and supporting media.
 - [ ] **Phase 2: Visual Identity and Responsive Experience** - Shape the portfolio into a dark, polished, mobile-friendly experience with subtle interaction cues.
 - [ ] **Phase 3: Metadata and Final Polish** - Add metadata and finish the page for a clean first release.
 
@@ -21,20 +21,22 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 ### Phase 1: Portfolio Content Foundation
 
-**Goal**: Replace the default starter page with a semantic single-page portfolio containing the core profile, experience, and skills narrative.
+**Goal**: Replace the default starter page with a semantic single-page portfolio containing profile, career history, featured work, open-source highlights, legacy project context, supporting screenshots, and skills.
 **Depends on**: Nothing (first phase)
-**Requirements**: [PROF-01, PROF-02, EXP-01, EXP-02, SKIL-01, UI-01, DELV-01, DELV-02]
+**Requirements**: [PROF-01, PROF-02, PROF-03, EXP-01, EXP-02, EXP-03, WORK-01, WORK-02, OSS-01, OSS-02, OSS-03, OSS-04, SKIL-01, UI-01, DELV-01, DELV-02]
 **Success Criteria** (what must be TRUE):
 
 1. Visitor can see a hero section with Punal Manalan's name, headline, and concise intro.
-2. Visitor can read about, experience, and technical arsenal sections with real authored content.
-3. The default Next.js starter page is fully removed.
-4. The page uses semantic HTML structure inside the App Router page.
-   **Plans**: 1 plan
+2. Visitor can read sourced about, experience, featured work, open-source, legacy project, and technical arsenal sections.
+3. Visitor can access public profile links and browse featured Wrexa project screenshots from the frontend.
+4. The default Next.js starter page is fully removed.
+5. The page uses semantic HTML structure inside the App Router page.
+**Plans**: 2 plans
 
 Plans:
 
-- [ ] 01-01: Deliver the authored semantic content foundation for the portfolio landing page
+- [ ] 01-01: Normalize the full resume, links, open-source sections, legacy projects, and Wrexa media into portfolio source data
+- [ ] 01-02: Render the complete resume-backed portfolio experience from the normalized source data
 
 ### Phase 2: Visual Identity and Responsive Experience
 
@@ -77,6 +79,6 @@ Phases execute in numeric order: 1 -> 2 -> 2.1 -> 2.2 -> 3 -> 3.1 -> 4
 
 | Phase                                        | Plans Complete | Status      | Completed |
 | -------------------------------------------- | -------------- | ----------- | --------- |
-| 1. Portfolio Content Foundation              | 0/1            | Not started | -         |
+| 1. Portfolio Content Foundation              | 0/2            | Not started | -         |
 | 2. Visual Identity and Responsive Experience | 0/2            | Not started | -         |
 | 3. Metadata and Final Polish                 | 0/1            | Not started | -         |

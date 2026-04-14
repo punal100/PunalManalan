@@ -18,6 +18,7 @@ Present Punal Manalan as a credible software developer and R&D-focused builder t
 
 - [ ] Replace the default Next.js starter page with a complete portfolio landing page.
 - [ ] Communicate profile, experience, and technical skills with clear hierarchy and semantic structure.
+- [ ] Integrate the detailed 2026 resume content, public profile links, and featured project media into the landing page.
 - [ ] Deliver a dark, responsive visual system with subtle interactive feedback.
 
 ### Out of Scope
@@ -28,7 +29,7 @@ Present Punal Manalan as a credible software developer and R&D-focused builder t
 
 ## Context
 
-The repository started empty and has been scaffolded with Next.js 16, React 19, TypeScript, ESLint, and Tailwind CSS 4. The content source is a portfolio brief centered on Punal Manalan's software development background, research and development focus, and experience at OpEzee through March 2026.
+The repository started empty and has been scaffolded with Next.js 16, React 19, TypeScript, ESLint, and Tailwind CSS 4. The content source now includes both the initial portfolio brief and the detailed resume package under `.temp/PunalManalan_Resume_Context/Punal_Resume_2026`, including public profile links, expanded career history, open-source work, and Wrexa project screenshots.
 
 The portfolio is intended to feel modern and minimal rather than like a stock template. The content emphasis is on software engineering, intelligent systems, game engines, and mobile development, with a dark-first visual direction.
 
@@ -47,6 +48,7 @@ The portfolio is intended to feel modern and minimal rather than like a stock te
 | Use Next.js App Router + Tailwind CSS                              | Matches the requested stack and current scaffold                  | — Pending |
 | Prioritize hero, about, experience, and technical arsenal sections | These sections were explicitly named in the brief                 | — Pending |
 | Use a dark-first visual system with restrained interactions        | The brief prefers a dark aesthetic with subtle hover states       | — Pending |
+| Use the resume markdown and Wrexa screenshots as Phase 1 source material | They provide the most complete authored content and real project visuals | — Pending |
 
 ## Evolution
 
