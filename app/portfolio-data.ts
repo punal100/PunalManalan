@@ -15,6 +15,7 @@ export type ExperienceRole = {
   period: string;
   summary: string;
   highlights: string[];
+  links?: ExternalLink[];
 };
 
 export type GalleryImage = {
@@ -172,6 +173,20 @@ export const portfolioData = {
         "Implemented Play Store and iOS payment integration using Microsoft PlayFab.",
         "Implemented multiplayer peer-to-peer session flows using EOS integrated with PlayFab.",
       ],
+      links: [
+        {
+          label: "Kingdoms Collide Mobile",
+          href: "https://kingdomscollidemobile.com/",
+        },
+        {
+          label: "Google Play",
+          href: "https://play.google.com/store/apps/details?id=com.kc.kingdomscollide",
+        },
+        {
+          label: "Apple App Store",
+          href: "https://apps.apple.com/us/app/kingdoms-collide-mobile/id6446848751",
+        },
+      ],
     },
   ] satisfies ExperienceRole[],
   featuredProject: {
@@ -280,7 +295,7 @@ export const portfolioData = {
     {
       title: "Creator and Maintainer - Open Embed Router",
       summary:
-        "Built a provider-agnostic, Docker-based OpenAI-compatible embeddings router supporting Ollama, OpenAI, NanoGPT, Together AI, and other compatible providers, with retries, health checks, logging, HTTPS deployment paths, and flexible authentication modes.",
+        "Built a provider-agnostic, Docker-based OpenAI-compatible embeddings router supporting Ollama, OpenAI, NanoGPT, Together AI, and other compatible providers, with retries, health checks, logging, HTTPS deployment paths, Cloudflare Tunnel support, and flexible authentication modes.",
       links: [
         {
           label: "open-embed-router",
@@ -291,7 +306,7 @@ export const portfolioData = {
     {
       title: "Creator and Maintainer - Networking Wrapper By Punal",
       summary:
-        "Built a cross-platform C++ networking wrapper focused on TCP, UDP, and low-level network programming across Windows and Linux.",
+        "Built a cross-platform C++ networking wrapper focused on TCP, UDP, and low-level network programming across Windows and Linux, continuing broader work on systems programming and reusable infrastructure libraries.",
       links: [
         {
           label: "Networking-Wrapper-By-Punal",
@@ -355,7 +370,7 @@ export const portfolioData = {
     {
       title: "Platform and Utility Plugins",
       summary:
-        "Utility plugins covering Android Chrome Custom Tabs, UMG sizing behavior, and custom scroll-box interaction support.",
+        "Utility plugins covering Android Chrome Custom Tabs, UMG sizing behavior, and custom scroll-box interaction support, including an Android custom tab plugin used in production in two confidential game projects.",
       repositories: [
         {
           label: "P_AndroidBrowserCustomTab",

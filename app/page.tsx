@@ -1,51 +1,27 @@
+import Image from "next/image";
+import { portfolioData } from "./portfolio-data";
+
 const navigation = [
   { href: "#about", label: "About" },
   { href: "#experience", label: "Experience" },
+  { href: "#featured-work", label: "Featured Work" },
+  { href: "#open-source", label: "Open Source" },
   { href: "#arsenal", label: "Arsenal" },
 ];
 
-const focusAreas = [
-  "Immersive software systems",
-  "Game engine workflows",
-  "Mobile product development",
-  "Applied AI and machine learning",
-];
-
-const experienceHighlights = [
-  "Spearheaded research and development initiatives from early exploration through technical implementation.",
-  "Worked at the intersection of new ideas, prototyping, and practical software engineering decisions.",
-  "Resigned in March 2026 to deepen technical knowledge and continue building more advanced systems.",
-];
-
-const skillGroups = [
-  {
-    label: "Languages",
-    tone: "from-cyan-400/12 to-cyan-500/4 text-cyan-100",
-    items: ["C++", "Python"],
-  },
-  {
-    label: "Game & 3D Engines",
-    tone: "from-emerald-400/12 to-emerald-500/4 text-emerald-100",
-    items: ["Unreal Engine 5", "Maya", "Blender"],
-  },
-  {
-    label: "Mobile Development",
-    tone: "from-amber-300/14 to-amber-500/5 text-amber-50",
-    items: ["Android Development", "iOS Development"],
-  },
-  {
-    label: "Core Concepts",
-    tone: "from-sky-400/12 to-sky-500/5 text-sky-100",
-    items: ["AI & Machine Learning"],
-  },
-  {
-    label: "Tools",
-    tone: "from-white/10 to-white/4 text-slate-100",
-    items: ["VS Code", "Git", "GitHub"],
-  },
-];
-
 export default function Home() {
+  const {
+    identity,
+    about,
+    experience,
+    featuredProject,
+    selectedProjects,
+    unrealRepositoryGroups,
+    contributions,
+    legacyProjects,
+    skillDomains,
+  } = portfolioData;
+
   return (
     <div className="relative flex min-h-screen flex-col overflow-x-hidden text-foreground">
       <header className="sticky top-0 z-30 border-b border-white/8 bg-slate-950/55 backdrop-blur-xl">
@@ -77,7 +53,7 @@ export default function Home() {
         <section className="grid gap-10 pb-16 pt-12 lg:grid-cols-[1.35fr_0.85fr] lg:items-end lg:gap-14 lg:pt-20">
           <div className="space-y-8">
             <p className="inline-flex items-center gap-3 rounded-full border border-accent/15 bg-accent/8 px-4 py-2 font-mono text-xs uppercase tracking-[0.34em] text-accent">
-              Software Developer | Research & Development
+              {identity.headline}
             </p>
 
             <div className="space-y-6">
@@ -85,45 +61,52 @@ export default function Home() {
                 Personal Resume & Portfolio
               </p>
               <h1 className="max-w-4xl text-5xl font-semibold tracking-[-0.05em] text-white sm:text-6xl lg:text-7xl">
-                Punal Manalan builds software with a researcher&apos;s curiosity and an engineer&apos;s discipline.
+                {identity.name}
               </h1>
               <p className="max-w-2xl text-lg leading-8 text-slate-300 sm:text-xl">
-                Developer with a strong foundation in research and development,
-                constantly exploring new technologies. Passionate about immersive
-                experiences and intelligent systems, with focus across software
-                engineering, game engines, and mobile development.
+                {identity.focus}
               </p>
             </div>
 
             <div className="flex flex-col gap-4 sm:flex-row">
               <a
-                href="#experience"
+                href="#featured-work"
                 className="inline-flex items-center justify-center rounded-full border border-accent/20 bg-accent px-6 py-3 text-sm font-semibold text-slate-950 transition duration-300 hover:-translate-y-0.5 hover:bg-[#79eadc]"
               >
-                Explore Experience
+                Explore Featured Work
               </a>
               <a
-                href="#arsenal"
+                href="#open-source"
                 className="inline-flex items-center justify-center rounded-full border border-white/12 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition duration-300 hover:-translate-y-0.5 hover:border-white/25 hover:bg-white/10"
               >
-                View Technical Arsenal
+                Browse Open Source Work
               </a>
             </div>
 
+            <div className="flex flex-wrap gap-3">
+              {identity.links.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center rounded-full border border-white/12 bg-white/[0.045] px-4 py-2 text-sm font-medium text-slate-200 transition hover:border-accent/35 hover:text-white"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+
             <div className="grid gap-3 sm:grid-cols-3">
-              {[
-                ["Discipline", "Software Engineering"],
-                ["Specialty", "R&D Prototyping"],
-                ["Direction", "Intelligent + Immersive Systems"],
-              ].map(([label, value]) => (
+              {identity.stats.map((stat) => (
                 <div
-                  key={label}
+                  key={stat.label}
                   className="rounded-3xl border border-white/8 bg-white/[0.045] p-4 backdrop-blur-sm"
                 >
                   <p className="font-mono text-[0.68rem] uppercase tracking-[0.3em] text-slate-500">
-                    {label}
+                    {stat.label}
                   </p>
-                  <p className="mt-3 text-sm leading-6 text-slate-200">{value}</p>
+                  <p className="mt-3 text-sm leading-6 text-slate-200">{stat.value}</p>
                 </div>
               ))}
             </div>
@@ -134,23 +117,27 @@ export default function Home() {
             <div className="space-y-8">
               <div className="space-y-3">
                 <p className="font-mono text-[0.68rem] uppercase tracking-[0.34em] text-slate-400">
-                  Current Trajectory
+                  Resume Coverage
                 </p>
                 <p className="text-2xl leading-9 text-white">
-                  Deepening expertise across real-time systems, engine tooling,
-                  mobile engineering, and applied intelligence.
+                  Every major section from the 2026 resume is now part of the portfolio content source.
                 </p>
               </div>
 
               <div className="space-y-4 rounded-[1.6rem] border border-white/8 bg-white/[0.035] p-5">
                 <div className="flex items-center justify-between text-sm text-slate-400">
-                  <span>Focus Matrix</span>
+                  <span>Coverage Matrix</span>
                   <span className="font-mono text-xs uppercase tracking-[0.28em] text-accent-warm">
-                    Active
+                    Loaded
                   </span>
                 </div>
                 <ul className="space-y-3 text-sm text-slate-200">
-                  {focusAreas.map((area) => (
+                  {[
+                    `${experience.length} professional roles`,
+                    `${selectedProjects.length} selected public highlights`,
+                    `${unrealRepositoryGroups.length} grouped Unreal repository tracks`,
+                    `${featuredProject.gallery.length} featured Wrexa screenshots`,
+                  ].map((area) => (
                     <li key={area} className="flex gap-3">
                       <span className="mt-1.5 h-2 w-2 rounded-full bg-accent" />
                       <span>{area}</span>
@@ -162,18 +149,18 @@ export default function Home() {
               <div className="grid grid-cols-2 gap-4">
                 <div className="rounded-[1.5rem] border border-white/8 bg-white/[0.035] p-5">
                   <p className="font-mono text-[0.68rem] uppercase tracking-[0.34em] text-slate-500">
-                    Base Layer
+                    Systems Focus
                   </p>
                   <p className="mt-3 text-lg font-medium text-white">
-                    Research to implementation
+                    Backend, networking, and cross-platform runtime work
                   </p>
                 </div>
                 <div className="rounded-[1.5rem] border border-white/8 bg-white/[0.035] p-5">
                   <p className="font-mono text-[0.68rem] uppercase tracking-[0.34em] text-slate-500">
-                    Tools of Choice
+                    Engine Focus
                   </p>
                   <p className="mt-3 text-lg font-medium text-white">
-                    UE5, Python, C++
+                    Unreal Engine, XR workflows, and shipped game production
                   </p>
                 </div>
               </div>
@@ -190,40 +177,41 @@ export default function Home() {
               About
             </p>
             <h2 className="text-3xl font-semibold tracking-[-0.04em] text-white sm:text-4xl">
-              Rooted in experimentation, built for real software delivery.
+              Cross-platform systems thinking with production-level engine and infrastructure depth.
             </h2>
           </header>
 
           <div className="grid gap-6 lg:grid-cols-[1fr_0.85fr]">
             <article className="rounded-[2rem] border border-white/8 bg-white/[0.04] p-6 leading-8 text-slate-300 backdrop-blur-sm">
-              <p>
-                Punal Manalan approaches development through research and
-                iteration. The work starts with curiosity, moves through
-                exploration, and ends with software that can actually be used,
-                tested, and improved.
-              </p>
-              <p className="mt-5">
-                That mindset shows up in cross-disciplinary interests: engine
-                tooling, immersive experiences, mobile products, and intelligent
-                systems. The throughline is consistent: understand the problem
-                deeply, then build with precision.
-              </p>
+              <p>{about.introduction}</p>
+              <ul className="mt-6 grid gap-3 text-sm leading-7 text-slate-300 md:grid-cols-2">
+                {about.bullets.map((bullet) => (
+                  <li
+                    key={bullet}
+                    className="rounded-[1.4rem] border border-white/8 bg-white/[0.03] p-4"
+                  >
+                    {bullet}
+                  </li>
+                ))}
+              </ul>
             </article>
 
             <div className="rounded-[2rem] border border-white/8 bg-panel p-6 backdrop-blur-sm">
               <p className="font-mono text-[0.68rem] uppercase tracking-[0.34em] text-slate-500">
-                Strength Profile
+                Public Profiles
               </p>
               <div className="mt-5 space-y-4">
-                {[
-                  ["Research", "Exploring unfamiliar systems and technologies quickly"],
-                  ["Execution", "Translating concepts into practical software structure"],
-                  ["Range", "Comfort across engines, mobile, and intelligent systems"],
-                ].map(([title, copy]) => (
-                  <div key={title} className="rounded-[1.4rem] border border-white/8 bg-white/[0.03] p-4">
-                    <p className="text-sm font-semibold text-white">{title}</p>
-                    <p className="mt-2 text-sm leading-6 text-slate-400">{copy}</p>
-                  </div>
+                {identity.links.map((link) => (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="block rounded-[1.4rem] border border-white/8 bg-white/[0.03] p-4 transition hover:border-accent/30 hover:bg-white/[0.05]"
+                  >
+                    <p className="text-sm font-semibold text-white">{link.label}</p>
+                    <p className="mt-2 break-all text-sm leading-6 text-slate-400">{link.href}</p>
+                  </a>
                 ))}
               </div>
             </div>
@@ -231,49 +219,286 @@ export default function Home() {
         </section>
 
         <section id="experience" className="border-t border-white/8 py-16">
-          <div className="grid gap-8 lg:grid-cols-[0.78fr_1.22fr] lg:gap-12">
+          <div className="grid gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:gap-12">
             <header className="space-y-4">
               <p className="font-mono text-xs uppercase tracking-[0.34em] text-accent-warm">
                 Experience
               </p>
               <h2 className="text-3xl font-semibold tracking-[-0.04em] text-white sm:text-4xl">
-                Research-driven product thinking with hands-on technical follow-through.
+                Professional work spanning Unreal R&amp;D, runtime systems, networking, and shipped products.
               </h2>
             </header>
 
-            <article className="rounded-[2rem] border border-white/8 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.02))] p-6 shadow-[0_20px_60px_rgba(0,0,0,0.24)]">
-              <div className="flex flex-col gap-4 border-b border-white/8 pb-6 md:flex-row md:items-end md:justify-between">
-                <div>
-                  <p className="font-mono text-[0.68rem] uppercase tracking-[0.34em] text-slate-500">
-                    Featured Role
-                  </p>
-                  <h3 className="mt-3 text-2xl font-semibold text-white">
-                    R&amp;D Developer at OpEzee
-                  </h3>
-                </div>
-                <p className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 font-mono text-xs uppercase tracking-[0.28em] text-slate-300">
-                  Through March 2026
-                </p>
+            <div className="grid gap-5">
+              {experience.map((role) => (
+                <article
+                  key={`${role.company}-${role.title}`}
+                  className="rounded-[2rem] border border-white/8 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.02))] p-6 shadow-[0_20px_60px_rgba(0,0,0,0.24)]"
+                >
+                  <div className="flex flex-col gap-4 border-b border-white/8 pb-6 md:flex-row md:items-end md:justify-between">
+                    <div>
+                      <p className="font-mono text-[0.68rem] uppercase tracking-[0.34em] text-slate-500">
+                        {role.company}
+                        {role.location ? `, ${role.location}` : ""}
+                      </p>
+                      <h3 className="mt-3 text-2xl font-semibold text-white">{role.title}</h3>
+                    </div>
+                    <p className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 font-mono text-xs uppercase tracking-[0.28em] text-slate-300">
+                      {role.period}
+                    </p>
+                  </div>
+
+                  <p className="mt-6 text-base leading-8 text-slate-300">{role.summary}</p>
+
+                  <ul className="mt-6 grid gap-4 md:grid-cols-2">
+                    {role.highlights.map((item) => (
+                      <li
+                        key={item}
+                        className="rounded-[1.4rem] border border-white/8 bg-white/[0.035] p-4 text-sm leading-7 text-slate-300"
+                      >
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+
+                  {role.links && role.links.length > 0 ? (
+                    <div className="mt-6 flex flex-wrap gap-3">
+                      {role.links.map((link) => (
+                        <a
+                          key={link.href}
+                          href={link.href}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="inline-flex items-center rounded-full border border-white/12 bg-white/[0.04] px-4 py-2 text-sm text-slate-200 transition hover:border-accent/30 hover:text-white"
+                        >
+                          {link.label}
+                        </a>
+                      ))}
+                    </div>
+                  ) : null}
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="featured-work" className="border-t border-white/8 py-16">
+          <div className="grid gap-8 lg:grid-cols-[0.78fr_1.22fr] lg:gap-12">
+            <header className="space-y-4">
+              <p className="font-mono text-xs uppercase tracking-[0.34em] text-accent-warm">
+                Featured Work
+              </p>
+              <h2 className="text-3xl font-semibold tracking-[-0.04em] text-white sm:text-4xl">
+                {featuredProject.title}
+              </h2>
+              <p className="text-sm uppercase tracking-[0.28em] text-slate-400">
+                {featuredProject.subtitle}
+              </p>
+            </header>
+
+            <div className="space-y-6 rounded-[2rem] border border-white/8 bg-white/[0.04] p-6 backdrop-blur-sm">
+              <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+                <p className="text-lg font-medium text-accent-warm">{featuredProject.analogy}</p>
+                <a
+                  href={featuredProject.demoVideo.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center justify-center rounded-full border border-accent/20 bg-accent px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-[#79eadc]"
+                >
+                  {featuredProject.demoVideo.label}
+                </a>
               </div>
 
-              <p className="mt-6 max-w-3xl text-base leading-8 text-slate-300">
-                Spearheaded research and development initiatives, bridging the
-                gap between innovative concepts and technical implementation.
-                The role centered on discovering what could work, validating the
-                technical path, and moving promising ideas into buildable form.
-              </p>
+              <p className="text-base leading-8 text-slate-300">{featuredProject.summary}</p>
 
-              <ul className="mt-8 grid gap-4 lg:grid-cols-3">
-                {experienceHighlights.map((item) => (
-                  <li
-                    key={item}
-                    className="rounded-[1.5rem] border border-white/8 bg-white/[0.035] p-5 text-sm leading-7 text-slate-300 transition duration-300 hover:border-accent/30 hover:bg-white/[0.055]"
+              <div className="grid gap-5 lg:grid-cols-2">
+                <div className="rounded-[1.5rem] border border-white/8 bg-white/[0.03] p-5">
+                  <p className="font-mono text-[0.68rem] uppercase tracking-[0.32em] text-slate-500">
+                    Capabilities
+                  </p>
+                  <ul className="mt-4 space-y-3 text-sm leading-7 text-slate-300">
+                    {featuredProject.capabilities.map((item) => (
+                      <li key={item} className="flex gap-3">
+                        <span className="mt-2 h-2 w-2 rounded-full bg-accent" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="rounded-[1.5rem] border border-white/8 bg-white/[0.03] p-5">
+                  <p className="font-mono text-[0.68rem] uppercase tracking-[0.32em] text-slate-500">
+                    Personal Contributions
+                  </p>
+                  <ul className="mt-4 space-y-3 text-sm leading-7 text-slate-300">
+                    {featuredProject.contributions.map((item) => (
+                      <li key={item} className="flex gap-3">
+                        <span className="mt-2 h-2 w-2 rounded-full bg-accent-warm" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+                {featuredProject.gallery.map((image) => (
+                  <figure
+                    key={image.src}
+                    className="overflow-hidden rounded-[1.5rem] border border-white/8 bg-slate-950/60"
                   >
-                    {item}
-                  </li>
+                    <Image
+                      src={image.src}
+                      alt={image.alt}
+                      width={1200}
+                      height={800}
+                      className="h-56 w-full object-cover"
+                    />
+                    <figcaption className="border-t border-white/8 px-4 py-3 text-sm text-slate-300">
+                      {image.caption}
+                    </figcaption>
+                  </figure>
                 ))}
-              </ul>
-            </article>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="open-source" className="border-t border-white/8 py-16">
+          <div className="space-y-10">
+            <header className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
+              <div className="space-y-3">
+                <p className="font-mono text-xs uppercase tracking-[0.34em] text-accent-warm">
+                  Open Source and Public Work
+                </p>
+                <h2 className="text-3xl font-semibold tracking-[-0.04em] text-white sm:text-4xl">
+                  Maintained products, engine tooling, public contributions, and legacy projects.
+                </h2>
+              </div>
+              <p className="max-w-xl text-sm leading-7 text-slate-400">
+                This section includes the selected project highlights, grouped Unreal repository families,
+                outside contributions, and older API-dependent work described in the resume.
+              </p>
+            </header>
+
+            <section className="space-y-5">
+              <h3 className="text-2xl font-semibold text-white">Selected Projects and Achievements</h3>
+              <div className="grid gap-5 xl:grid-cols-2">
+                {selectedProjects.map((project) => (
+                  <article
+                    key={project.title}
+                    className="rounded-[1.8rem] border border-white/8 bg-white/[0.04] p-6 transition hover:border-white/16 hover:bg-white/[0.055]"
+                  >
+                    <h4 className="text-xl font-semibold text-white">{project.title}</h4>
+                    <p className="mt-3 text-sm leading-7 text-slate-300">{project.summary}</p>
+                    {project.traction ? (
+                      <p className="mt-3 text-sm text-accent-warm">{project.traction}</p>
+                    ) : null}
+                    {project.links.length > 0 ? (
+                      <div className="mt-5 flex flex-wrap gap-3">
+                        {project.links.map((link) => (
+                          <a
+                            key={link.href}
+                            href={link.href}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="inline-flex items-center rounded-full border border-white/12 bg-slate-950/70 px-4 py-2 text-sm text-slate-200 transition hover:border-accent/30 hover:text-white"
+                          >
+                            {link.label}
+                          </a>
+                        ))}
+                      </div>
+                    ) : null}
+                  </article>
+                ))}
+              </div>
+            </section>
+
+            <section className="space-y-5">
+              <h3 className="text-2xl font-semibold text-white">Additional Unreal Engine Public Repositories</h3>
+              <div className="grid gap-5 xl:grid-cols-2">
+                {unrealRepositoryGroups.map((group) => (
+                  <article
+                    key={group.title}
+                    className="rounded-[1.8rem] border border-white/8 bg-white/[0.04] p-6"
+                  >
+                    <h4 className="text-xl font-semibold text-white">{group.title}</h4>
+                    <p className="mt-3 text-sm leading-7 text-slate-300">{group.summary}</p>
+                    <div className="mt-5 flex flex-wrap gap-3">
+                      {group.repositories.map((repo) => (
+                        <a
+                          key={repo.href}
+                          href={repo.href}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="inline-flex items-center rounded-full border border-white/12 bg-slate-950/70 px-4 py-2 text-sm text-slate-200 transition hover:border-accent/30 hover:text-white"
+                        >
+                          {repo.label}
+                        </a>
+                      ))}
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </section>
+
+            <section className="space-y-5">
+              <h3 className="text-2xl font-semibold text-white">Other Open Source Contributions</h3>
+              <div className="grid gap-5 xl:grid-cols-3">
+                {contributions.map((contribution) => (
+                  <article
+                    key={contribution.project}
+                    className="rounded-[1.8rem] border border-white/8 bg-white/[0.04] p-6"
+                  >
+                    <h4 className="text-xl font-semibold text-white">{contribution.project}</h4>
+                    <p className="mt-3 text-sm leading-7 text-slate-300">{contribution.summary}</p>
+                    <div className="mt-5 flex flex-wrap gap-3">
+                      {contribution.links.map((link) => (
+                        <a
+                          key={link.href}
+                          href={link.href}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="inline-flex items-center rounded-full border border-white/12 bg-slate-950/70 px-4 py-2 text-sm text-slate-200 transition hover:border-accent/30 hover:text-white"
+                        >
+                          {link.label}
+                        </a>
+                      ))}
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </section>
+
+            <section className="space-y-5">
+              <h3 className="text-2xl font-semibold text-white">Legacy API-Dependent Projects</h3>
+              <div className="grid gap-5 xl:grid-cols-2">
+                {legacyProjects.map((project) => (
+                  <article
+                    key={project.title}
+                    className="rounded-[1.8rem] border border-white/8 bg-white/[0.04] p-6"
+                  >
+                    <h4 className="text-xl font-semibold text-white">{project.title}</h4>
+                    <p className="mt-3 text-sm leading-7 text-slate-300">{project.summary}</p>
+                    {project.links.length > 0 ? (
+                      <div className="mt-5 flex flex-wrap gap-3">
+                        {project.links.map((link) => (
+                          <a
+                            key={link.href}
+                            href={link.href}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="inline-flex items-center rounded-full border border-white/12 bg-slate-950/70 px-4 py-2 text-sm text-slate-200 transition hover:border-accent/30 hover:text-white"
+                          >
+                            {link.label}
+                          </a>
+                        ))}
+                      </div>
+                    ) : null}
+                  </article>
+                ))}
+              </div>
+            </section>
           </div>
         </section>
 
@@ -288,19 +513,24 @@ export default function Home() {
               </h2>
             </div>
             <p className="max-w-xl text-sm leading-7 text-slate-400">
-              Each category represents a working area rather than a keyword list.
-              The emphasis stays on usable engineering breadth and depth.
+              Each category reflects the technical domains explicitly covered in the resume rather than a short keyword cloud.
             </p>
           </div>
 
           <div className="mt-10 grid gap-5 lg:grid-cols-2 xl:grid-cols-3">
-            {skillGroups.map((group) => (
+            {skillDomains.map((group, index) => (
               <article
                 key={group.label}
                 className="group rounded-[1.8rem] border border-white/8 bg-white/[0.035] p-6 transition duration-300 hover:-translate-y-1 hover:border-white/16 hover:bg-white/[0.055]"
               >
                 <div
-                  className={`inline-flex rounded-full border border-white/8 bg-gradient-to-r px-4 py-2 font-mono text-[0.68rem] uppercase tracking-[0.32em] ${group.tone}`}
+                  className={`inline-flex rounded-full border border-white/8 bg-gradient-to-r px-4 py-2 font-mono text-[0.68rem] uppercase tracking-[0.32em] ${[
+                    "from-cyan-400/12 to-cyan-500/4 text-cyan-100",
+                    "from-emerald-400/12 to-emerald-500/4 text-emerald-100",
+                    "from-amber-300/14 to-amber-500/5 text-amber-50",
+                    "from-sky-400/12 to-sky-500/5 text-sky-100",
+                    "from-white/10 to-white/4 text-slate-100",
+                  ][index % 5]}`}
                 >
                   {group.label}
                 </div>
@@ -322,9 +552,9 @@ export default function Home() {
 
       <footer className="border-t border-white/8">
         <div className="mx-auto flex w-full max-w-6xl flex-col gap-3 px-6 py-8 text-sm text-slate-400 lg:flex-row lg:items-center lg:justify-between lg:px-8">
-          <p>Punal Manalan Portfolio</p>
+          <p>{identity.name} Portfolio</p>
           <p className="font-mono uppercase tracking-[0.28em] text-slate-500">
-            Software Developer | Research &amp; Development
+            Professional Software Engineer | Unreal Engine | Systems | AI Tooling
           </p>
         </div>
       </footer>
